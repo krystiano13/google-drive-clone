@@ -1,5 +1,17 @@
 ---
 services:
+  react:
+    build:
+      context: './frontend/'
+      dockerfile: ./Dockerfile
+    volumes:
+      - './frontend:/app'
+    ports:
+      - "5173:5173"
+    restart: always
+    depends_on:
+      - php
+      - database  
   php:
     image: ${IMAGES_PREFIX:-}app-php
     restart: unless-stopped
