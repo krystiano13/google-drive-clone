@@ -32,12 +32,13 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "Common\\": "src/Common/",
+            "User\\": "src/User/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "replace": {
