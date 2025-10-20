@@ -36,6 +36,12 @@ doctrine:
                  dir: '%kernel.project_dir%/src/Folder/Entity'
                  prefix: 'Folder\Entity'
                  alias: Folder
+             Share:
+                 type: attribute
+                 is_bundle: false
+                 dir: '%kernel.project_dir%/src/Share/Entity'
+                 prefix: 'Share\Entity'
+                 alias: Share
         controller_resolver:
             auto_mapping: false
 

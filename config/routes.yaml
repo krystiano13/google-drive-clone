@@ -22,5 +22,11 @@ folder_controllers:
         namespace: Folder\Controller
     type: attribute
 
+share_controllers:
+    resource:
+        path: ..src/Share/Controller/
+        namespace: Share\Controller
+    type: attribute
+
 api_login_check:
     path: /api/login_check

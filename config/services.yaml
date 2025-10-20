@@ -34,6 +34,12 @@ services:
             - '../src/Folder/DependencyInjection'
             - '../src/Folder/Entity'
 
+    Share\:
+        resource: '../src/Share'
+        exclude:
+            - '../src/Share/DependencyInjection'
+            - '../src/Share/Entity'
+
     Common\EventListener\ValidationErrorEventListener:
         class: Common\EventListener\ValidationErrorEventListener
         tags:

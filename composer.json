@@ -45,7 +45,8 @@
             "Common\\": "src/Common/",
             "User\\": "src/User/",
             "File\\": "src/File/",
-            "Folder\\": "src/Folder/"
+            "Folder\\": "src/Folder/",
+            "Share\\": "src/Share/"
         }
     },
     "autoload-dev": {
