@@ -44,7 +44,8 @@
         "psr-4": {
             "Common\\": "src/Common/",
             "User\\": "src/User/",
-            "File\\": "src/File/"
+            "File\\": "src/File/",
+            "Folder\\": "src/Folder/"
         }
     },
     "autoload-dev": {

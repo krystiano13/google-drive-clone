@@ -16,5 +16,11 @@ file_controllers:
         namespace: File\Controller
     type: attribute
 
+folder_controllers:
+    resource:
+        path: ..src/Folder/Controller/
+        namespace: Folder\Controller
+    type: attribute
+
 api_login_check:
     path: /api/login_check

@@ -22,6 +22,18 @@ services:
             - '../src/User/DependencyInjection'
             - '../src/User/Entity'
 
+    File\:
+        resource: '../src/File'
+        exclude:
+            - '../src/File/DependencyInjection'
+            - '../src/File/Entity'
+
+    Folder\:
+        resource: '../src/Folder'
+        exclude:
+            - '../src/Folder/DependencyInjection'
+            - '../src/Folder/Entity'
+
     Common\EventListener\ValidationErrorEventListener:
         class: Common\EventListener\ValidationErrorEventListener
         tags:
