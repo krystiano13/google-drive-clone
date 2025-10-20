@@ -27,6 +27,7 @@
         "symfony/runtime": "7.3.*",
         "symfony/security-bundle": "7.3.*",
         "symfony/serializer": "7.3.*",
+        "symfony/uid": "7.3.*",
         "symfony/validator": "7.3.*",
         "symfony/yaml": "7.3.*"
     },
@@ -42,7 +43,8 @@
     "autoload": {
         "psr-4": {
             "Common\\": "src/Common/",
-            "User\\": "src/User/"
+            "User\\": "src/User/",
+            "File\\": "src/File/"
         }
     },
     "autoload-dev": {
