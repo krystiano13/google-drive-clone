@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace File\Repository;
+namespace Folder\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use File\Entity\File;
 use Doctrine\Persistence\ManagerRegistry;
+use Folder\Entity\Folder;
 
 /**
- * @extends ServiceEntityRepository<File>
+ * @extends ServiceEntityRepository<Folder>
  */
-class FileRepository extends ServiceEntityRepository
+class FolderRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, File::class);
+        parent::__construct($registry, Folder::class);
     }
 }

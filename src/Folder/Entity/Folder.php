@@ -2,18 +2,20 @@
 
 declare(strict_types=1);
 
-namespace File\Entity;
+namespace Folder\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use File\Repository\FileRepository;
-use Folder\Entity\Folder;
+use File\Entity\File;
+use Folder\Repository\FolderRepository;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
 use User\Entity\User;
 
-#[ORM\Entity(repositoryClass: FileRepository::class)]
-class File
+#[ORM\Entity(repositoryClass: FolderRepository::class)]
+class Folder
 {
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
@@ -23,26 +25,22 @@ class File
 
     public function __construct(
         #[ORM\Column(nullable: false)]
-        public string $original_name,
+        public string $folder_name,
 
-        #[ORM\Column(nullable: false)]
-        public string $file_path,
+        #[ORM\OneToMany(targetEntity: Folder::class, mappedBy: 'folders')]
+        public Collection $folders,
 
-        #[ORM\Column(nullable: false)]
-        public string $mime_type,
+        #[ORM\OneToMany(targetEntity: File::class, mappedBy: 'folders')]
+        public Collection $files,
 
-        #[ORM\Column(nullable: false)]
-        public string $format,
-
-        #[ORM\Column(nullable: false)]
-        public int $size,
-
-        #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'files')]
+        #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'folders')]
         public ?User $user,
 
         #[ORM\ManyToOne(targetEntity: Folder::class, inversedBy: 'folders')]
         public ?Folder $parent_folder,
     ) {
+        $this->folders = new ArrayCollection();
+        $this->files = new ArrayCollection();
     }
 
     public function getId(): ?Uuid
