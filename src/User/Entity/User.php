@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace User\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use User\Repository\UserRepository;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+class User implements PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -25,6 +26,11 @@ class User
         #[ORM\Column]
         public string $password,
     ) {
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
     }
 
     public function getId(): ?int

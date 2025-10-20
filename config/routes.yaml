@@ -4,5 +4,11 @@
 #        namespace: App\Controller
 #    type: attribute
 
+user_controllers:
+    resource:
+        path: ../src/User/Controller/
+        namespace: User\Controller
+    type: attribute
+
 api_login_check:
     path: /api/login_check
