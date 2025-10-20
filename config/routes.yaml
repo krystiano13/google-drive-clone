@@ -10,5 +10,11 @@ user_controllers:
         namespace: User\Controller
     type: attribute
 
+file_controllers:
+    resource:
+        path: ../src/File/Controller/
+        namespace: File\Controller
+    type: attribute
+
 api_login_check:
     path: /api/login_check

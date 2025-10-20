@@ -24,6 +24,12 @@ doctrine:
                  dir: '%kernel.project_dir%/src/User/Entity'
                  prefix: 'User\Entity'
                  alias: User
+             File:
+                 type: attribute
+                 is_bundle: false
+                 dir: '%kernel.project_dir%/src/File/Entity'
+                 prefix: 'File\Entity'
+                 alias: File
         controller_resolver:
             auto_mapping: false
 
