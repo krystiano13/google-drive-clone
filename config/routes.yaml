@@ -18,13 +18,13 @@ file_controllers:
 
 folder_controllers:
     resource:
-        path: ..src/Folder/Controller/
+        path: ../src/Folder/Controller/
         namespace: Folder\Controller
     type: attribute
 
 share_controllers:
     resource:
-        path: ..src/Share/Controller/
+        path: ../src/Share/Controller/
         namespace: Share\Controller
     type: attribute
 
