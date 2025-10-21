@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Folder\Controller;
 
+use Common\Service\ExceptionMessenger;
 use Common\Service\MessageBusDispatcher;
 use Folder\Command\Create\CreateFolderCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
 final class FolderController extends AbstractController
 {
     public function __construct(
-        private readonly MessageBusDispatcher $dispatcher
+        private readonly MessageBusDispatcher $dispatcher,
     ) {
     }
 
@@ -28,15 +29,9 @@ final class FolderController extends AbstractController
             $this->dispatcher->dispatchCommand($command);
             return $this->json([], 201);
         } catch (BadRequestHttpException $exception) {
-            return $this->json([
-                'code' => 400,
-                'message' => $exception->getMessage()
-            ], 400);
+            return $this->json(ExceptionMessenger::buildMessage(400, $exception), 400);
         } catch (\Exception $exception) {
-            return $this->json([
-                'code' => 500,
-                'message' => $exception->getMessage()
-            ], 500);
+            return $this->json(ExceptionMessenger::buildMessage(500, $exception), 500);
         }
     }
 }
