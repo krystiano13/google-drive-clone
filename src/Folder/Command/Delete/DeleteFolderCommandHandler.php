@@ -29,11 +29,6 @@ final readonly class DeleteFolderCommandHandler
             throw new NotFoundHttpException("Folder not found");
         }
 
-        foreach($folder->folders as $child_folder)
-        {
-            $this->entity_manager->remove($child_folder);
-        }
-
         $this->entity_manager->remove($folder);
     }
 }

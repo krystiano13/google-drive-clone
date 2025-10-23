@@ -27,10 +27,10 @@ class Folder
         #[ORM\Column(nullable: false)]
         public string $folder_name,
 
-        #[ORM\OneToMany(targetEntity: Folder::class, mappedBy: 'folders')]
+        #[ORM\OneToMany(targetEntity: Folder::class, mappedBy: 'parent_folder', cascade: ['remove'])]
         public Collection $folders,
 
-        #[ORM\OneToMany(targetEntity: File::class, mappedBy: 'folders')]
+        #[ORM\OneToMany(targetEntity: File::class, mappedBy: 'parent_folder', cascade: ['remove'])]
         public Collection $files,
 
         #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'folders')]
